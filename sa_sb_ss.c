@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sa_sb_ss.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/18 17:53:56 by mavanesy         ###   ########.fr       */
+/*   Created: 2026/04/16 19:40:24 by mavanesy          #+#    #+#             */
+/*   Updated: 2026/04/18 17:54:41 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-
-typedef struct number
+void	swap(int *stack, int size)
 {
-	int	value;
-	int	index;
-}	t_number;
+	int	temp;
 
-void	rotate(int **stack, int size);
-void	reverse_rotate(int **stack, int size);
-void	swap(int *stack, int size);
-void	push(int *stack1, int *stack2, int *size1, int *size2);
+	if (size < 2)
+		return ;
+	temp = stack[0];
+	stack[0] = stack[1];
+	stack[1] = temp;
+}
 
-#endif
+void	sa(int *a, int size1)
+{
+	swap(a, size1);
+	write(1, "sa\n", 3);
+}
+
+void	sb(int *b, int size2)
+{
+	swap(b, size2);
+	write(1, "sb\n", 3);
+}
+
+void	ss(int *a, int *b, int size1, int size2)
+{
+	swap(a, size1);
+	swap(b, size2);
+	write(1, "ss\n", 3);
+}

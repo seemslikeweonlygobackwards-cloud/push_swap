@@ -1,32 +1,27 @@
 NAME = push_swap
-
-CC = cc
+LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
-
-SRCS = push_swap.c \
-
+SRCS = main.c push_swap.c merge_sort.c
 OBJS = $(SRCS:.c=.o)
 
-RM = rm -f
+all: $(LIBFT) $(NAME)
 
-all: $(NAME)
-
-$(NAME): $(OBJS) libft/libft.a
-	$(CC) $(OBJS) libft/libft.a -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-libft/libft.a:
+$(LIBFT):
 	make -C libft
 
+$(NAME): $(OBJS)
+	cc $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+%.o: %.c
+	cc $(CFLAGS) -c $< -o $@
+
 clean:
-	$(RM) $(OBJS)
 	make -C libft clean
+	rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
 	make -C libft fclean
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/18 17:53:56 by mavanesy         ###   ########.fr       */
+/*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
+/*   Updated: 2026/04/18 19:07:17 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-
-typedef struct number
+int	*parse_arg(int argc, char **argv)
 {
-	int	value;
-	int	index;
-}	t_number;
+	int		*i_arr;
+	int		i;
+	int		count;
+	char	**copy;
 
-void	rotate(int **stack, int size);
-void	reverse_rotate(int **stack, int size);
-void	swap(int *stack, int size);
-void	push(int *stack1, int *stack2, int *size1, int *size2);
-
-#endif
+	i = 1;
+	count = 0;
+	while (i < argc)
+	{
+		copy = ft_split(argv[i], ' ');
+		i++;
+		while (copy[count])
+			count++;
+	}
+	i_arr = malloc(sizeof(int) * count);
+	if (!i_arr)
+		return (NULL);
+	while (i < argc)
+	{
+		i_arr[i - 1] = ft_atoi(copy);
+		i++;
+	}
+	return (i_arr);
+}
