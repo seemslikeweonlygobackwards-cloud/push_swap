@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 23:06:03 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/18 17:35:45 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/21 21:30:26 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,19 @@ int	main(int argc, char **argv)
 	free(a_copy);
 }
 
+/*
+arr = parse_arg(argc, argv);
+if (!arr)
+	error();
+
+size = count_arg(argc, argv);
+
+if (duplicates(arr, size))
+{
+	free(arr);
+	error();
+}
+*/
 /*
 
 
