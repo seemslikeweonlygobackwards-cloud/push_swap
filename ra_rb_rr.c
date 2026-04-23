@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ra_rb_rr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 20:02:13 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/18 17:48:59 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/23 22:07:24 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(int *stack, int size)
+void	rotate(t_number *stack, int size)
 {
 	int	first;
 	int	i;
@@ -29,19 +29,19 @@ void	rotate(int *stack, int size)
 	stack[size - 1] = first;
 }
 
-void	ra(int *a, int size1)
+void	ra(t_number *a, int size1)
 {
 	rotate(a, size1);
 	write(1, "ra\n", 3);
 }
 
-void	rb(int *b, int size2)
+void	rb(t_number *b, int size2)
 {
 	rotate(b, size2);
 	write(1, "rb\n", 3);
 }
 
-void	rr(int *a, int *b, int size1, int size2)
+void	rr(t_number *a, t_number *b, int size1, int size2)
 {
 	rotate(a, size1);
 	rotate(b, size2);

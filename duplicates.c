@@ -6,13 +6,13 @@
 /*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 21:02:15 by monika            #+#    #+#             */
-/*   Updated: 2026/04/21 21:05:16 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/23 22:40:14 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	duplicates(int *arr, int size)
+int	duplicates(t_number *arr, int size)
 {
 	int	i;
 	int	j;
@@ -23,7 +23,7 @@ int	duplicates(int *arr, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (arr[i] == arr[j])
+			if (arr[i].value == arr[j].value)
 				return (1);
 			j++;
 		}

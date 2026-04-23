@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sa_sb_ss.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:40:24 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/18 17:54:41 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/23 22:08:25 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(int *stack, int size)
+void	swap(t_number *stack, int size)
 {
 	int	temp;
 
@@ -23,19 +23,19 @@ void	swap(int *stack, int size)
 	stack[1] = temp;
 }
 
-void	sa(int *a, int size1)
+void	sa(t_number *a, int size1)
 {
 	swap(a, size1);
 	write(1, "sa\n", 3);
 }
 
-void	sb(int *b, int size2)
+void	sb(t_number *b, int size2)
 {
 	swap(b, size2);
 	write(1, "sb\n", 3);
 }
 
-void	ss(int *a, int *b, int size1, int size2)
+void	ss(t_number *a, t_number *b, int size1, int size2)
 {
 	swap(a, size1);
 	swap(b, size2);

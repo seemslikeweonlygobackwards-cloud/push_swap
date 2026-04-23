@@ -6,7 +6,7 @@
 /*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/21 21:26:30 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/23 22:26:14 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	count_arg(int argc, char **argv)
 	return (count);
 }
 
-int	fill_arr(int *i_arr, char **copy, int x)
+int	fill_arr(t_number *s_arr, char **copy, int x)
 {
 	int		j;
 	long	n;
@@ -68,40 +68,41 @@ int	fill_arr(int *i_arr, char **copy, int x)
 			n = error_handle(copy[j]);
 			if (n > 2147483647 || n < -2147483648)
 				return (free_everything(copy), -1);
-			i_arr[x++] = (int)n;
+			s_arr[x].value = (int)n;
+			s_arr[x].index = 0;
+			x++;
 		}
 		free(copy[j]);
 		j++;
 	}
-	free(copy);
-	return (x);
+	return (free(copy), x);
 }
 
-int	*parse_arg(int argc, char **argv)
+t_number	*parse_arg(int argc, char **argv)
 {
-	int		*i_arr;
-	int		i;
-	char	**copy;
-	int		count;
-	int		x;
+	t_number	*s_arr;
+	int			i;
+	char		**copy;
+	int			count;
+	int			x;
 
 	i = 1;
 	x = 0;
 	count = count_arg(argc, argv);
 	if (count <= 0)
 		return (NULL);
-	i_arr = malloc(sizeof(int) * count);
-	if (!i_arr)
+	s_arr = malloc(sizeof(t_number) * count);
+	if (!s_arr)
 		return (NULL);
 	while (i < argc)
 	{
 		copy = ft_split(argv[i], ' ');
 		if (!copy)
-			return (free(i_arr), NULL);
-		x = fill_arr(i_arr, copy, x);
+			return (free(s_arr), NULL);
+		x = fill_arr(s_arr, copy, x);
 		if (x == -1)
-			return (free(i_arr), NULL);
+			return (free(s_arr), NULL);
 		i++;
 	}
-	return (i_arr);
+	return (s_arr);
 }
