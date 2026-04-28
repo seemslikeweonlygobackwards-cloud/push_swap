@@ -3,82 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/07 23:06:03 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/21 21:30:26 by monika           ###   ########.fr       */
+/*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
+/*   Updated: 2026/04/28 22:06:11 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "libft/libft.h"
-#include "push_swap.h"
-#include "merge_sort.h"
+int	error(void)
+{
+	write(2, "Error\n", 6);
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*a_copy;
-	int i;
-	int j;
+	t_number	*a;
+	t_number	*b;
+	int			size1;
+	int			size2;
 
-	a = malloc(sizeof(int) * (argc - 1));
-	a_copy = malloc(sizeof(int) * (argc - 1));
-	i = 1;
-	j = 0;
-	while (i < argc)
-	{
-		a[j] = ft_atoi(argv[i]);
-		printf("%d ", a[j]);
-		j++;
-		i++;
-	}
-	i = 0;
-	while (i < argc - 1)
-	{
-		a_copy[i] = a[i];
-		i++;
-	}
-
-	i = 0;
-	while (i < argc - 1)
-	{
-		printf("\n%d ", (merge_sort(&a_copy, argc - 1))[i]);
-		i++;
-	}
+	if (argc < 2)
+		return (0);
+	size1 = count_arg(argc, argv);
+	a = parse_arg(argc, argv);
+	if (!a)
+		return (error());
+	if (duplicates(a, size1))
+		return (free(a), error());
+	size2 = 0;
+	b = malloc(sizeof(t_number) * size1);
+	if (!b)
+		return (free(a), error());
+	indexing(a, size1);
+//	choose_strategy(a, b, &size_a, &size_b);
 	free(a);
-	free(a_copy);
+	free(b);
+	return (0);
 }
-
-/*
-arr = parse_arg(argc, argv);
-if (!arr)
-	error();
-
-size = count_arg(argc, argv);
-
-if (duplicates(arr, size))
-{
-	free(arr);
-	error();
-}
-*/
-/*
-
-
-	// rotate(&a, argc - 1);
-	// reverse_rotate(&a, argc - 1);
-	// merge_sort(&a_copy, argc - 1);
-
-get stack a as int *arr
-hasError() -> not integers, integers outside the valid range, or duplicate values
-	
-1 3 2 7 15 10 4
-
-size / 2 * pb -> [4, 10, 15] -> b stack | [1, 3, 2, 7] -> a stack
-if size > 1 -> repeat
-
-
-
-*/
