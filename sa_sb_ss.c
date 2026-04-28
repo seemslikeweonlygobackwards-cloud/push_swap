@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sa_sb_ss.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:40:24 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/23 22:08:25 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/28 22:42:27 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_number *stack, int size)
 {
-	int	temp;
+	t_number	temp;
 
 	if (size < 2)
 		return ;

@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indexing.c                                         :+:      :+:    :+:   */
+/*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 15:01:22 by monika            #+#    #+#             */
-/*   Updated: 2026/04/28 22:38:45 by mavanesy         ###   ########.fr       */
+/*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
+/*   Updated: 2026/04/28 22:38:32 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	indexing(t_number *arr, int size)
+int	chunk_up(int size)
 {
-	int	sort;
-	int	i;
-	int	j;
+	int	chunks;
 
-	i = 0;
-	if (!arr || size <= 0)
-		return (-1);
-	while (i < size)
-	{
-		j = 0;
-		sort = 0;
-		while (j < size)
-		{
-			if (arr[j].value < arr[i].value)
-				sort++;
-			j++;
-		}
-		arr[i].index = sort;
-		i++;
-	}
-	return (0);
+	chunks = size / 20;
+	if (chunks < 5)
+		return (5);
+	return (chunks);
+}
+
+void	push_chunks(t_number *a, )
+
+void	medium_sort(t_number *arr, int *size)
+{
+	
 }

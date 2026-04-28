@@ -6,9 +6,11 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/28 22:06:11 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 22:38:37 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	error(void)
 {
@@ -36,6 +38,8 @@ int	main(int argc, char **argv)
 	if (!b)
 		return (free(a), error());
 	indexing(a, size1);
+	if (indexing(a, size1) == -1)
+		return (free(a), free(b), error());
 //	choose_strategy(a, b, &size_a, &size_b);
 	free(a);
 	free(b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ra_rb_rr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 20:02:13 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/23 22:07:24 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/28 22:43:27 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	rotate(t_number *stack, int size)
 {
-	int	first;
-	int	i;
+	t_number	temp;
+	int			i;
 
 	if (size < 2)
 		return ;
-	first = stack[0];
+	temp = stack[0];
 	i = 0;
 	while (i < size - 1)
 	{
 		stack[i] = stack[i + 1];
 		i++;
 	}
-	stack[size - 1] = first;
+	stack[size - 1] = temp;
 }
 
 void	ra(t_number *a, int size1)

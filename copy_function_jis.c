@@ -6,9 +6,11 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:21:03 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/28 20:21:20 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 22:38:58 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	*step_copy(t_number *arr, int size)
 {

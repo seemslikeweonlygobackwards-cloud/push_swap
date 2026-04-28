@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/28 20:43:21 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 22:40:09 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int			count_arg(int argc, char **argv);
 int			fill_arr(t_number *s_arr, char **copy, int x);
 t_number	*parse_arg(int argc, char **argv);
 int			*merge_sort(int **array, int size);
+int			indexing(t_number *arr, int size);
 
 #endif

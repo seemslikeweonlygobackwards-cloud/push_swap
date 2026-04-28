@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/27 16:19:26 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 22:41:34 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	first_handle(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (!is_digit(str[i]))
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}
