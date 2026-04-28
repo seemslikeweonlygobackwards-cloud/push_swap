@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/23 22:47:43 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/28 19:47:10 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+//# ifndef MERGE_SORT_H
+//#  define MERGE_SORT_H
+//# endif
 
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
@@ -48,5 +52,6 @@ void		free_everything(char **copy);
 int			count_arg(int argc, char **argv);
 int			fill_arr(t_number *s_arr, char **copy, int x);
 t_number	*parse_arg(int argc, char **argv);
+int			*merge_sort(int **array, int size);
 
 #endif

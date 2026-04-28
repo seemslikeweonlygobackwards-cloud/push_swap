@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   duplicates.c                                       :+:      :+:    :+:   */
+/*   copy_function_jis.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 21:02:15 by monika            #+#    #+#             */
-/*   Updated: 2026/04/27 16:19:10 by mavanesy         ###   ########.fr       */
+/*   Created: 2026/04/28 20:21:03 by mavanesy          #+#    #+#             */
+/*   Updated: 2026/04/28 20:21:20 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	duplicates(t_number *arr, int size)
+int	*step_copy(t_number *arr, int size)
 {
+	int	*copy;
 	int	i;
-	int	j;
 
 	i = 0;
+	copy = malloc(sizeof(int) * size);
+	if (!copy)
+		return (NULL);
 	while (i < size)
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i].value == arr[j].value)
-				return (1);
-			j++;
-		}
+		copy[i] = arr[i].value;
 		i++;
 	}
-	return (0);
+	return (copy);
 }
