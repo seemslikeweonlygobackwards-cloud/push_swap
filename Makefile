@@ -5,15 +5,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
-SRCS = main.c \
+SRCS = push_swap.c \
        indexing.c \
-	   duplicates.c \
-	   error_handle.c \
-	   pa_pb.c \
-	   sa_sb_ss.c \
-	   ra_rb_rr.c \
-	   rra_rrb_rrr.c \
-	   parse_arg.c
+       duplicates.c \
+       error_handle.c \
+       pa_pb.c \
+       sa_sb_ss.c \
+       ra_rb_rr.c \
+       rra_rrb_rrr.c \
+       parse_arg.c \
+       simple_sort.c \
+       medium_sort.c \
+       copy_function_jis.c
 
 OBJS = $(SRCS:.c=.o)
 

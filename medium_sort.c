@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/28 22:38:32 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 23:22:37 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	chunk_up(int size)
 	return (chunks);
 }
 
-void	push_chunks(t_number *a, )
+void	(push_chunks)
 
-void	medium_sort(t_number *arr, int *size)
+void	medium_sort(t_number *a, t_number *b, int *size1, int *size2)
 {
-	
+    
 }
