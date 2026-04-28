@@ -6,16 +6,12 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/28 19:47:10 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/28 20:43:21 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-//# ifndef MERGE_SORT_H
-//#  define MERGE_SORT_H
-//# endif
 
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"

@@ -1,27 +1,42 @@
 NAME = push_swap
-LIBFT = libft/libft.a
+
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c push_swap.c merge_sort.c
+
+LIBFT = libft/libft.a
+
+SRCS = main.c \
+       indexing.c \
+	   duplicates.c \
+	   error_handle.c \
+	   pa_pb.c \
+	   sa_sb_ss.c \
+	   ra_rb_rr.c \
+	   rra_rrb_rrr.c \
+	   parse_arg.c
+
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFT) $(NAME)
+RM = rm -f
+
+all: $(NAME)
 
 $(LIBFT):
 	make -C libft
 
-$(NAME): $(OBJS)
-	cc $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	cc $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make -C libft clean
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	make -C libft fclean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
