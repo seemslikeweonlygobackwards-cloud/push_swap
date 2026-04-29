@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/29 00:07:01 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:07:10 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,56 @@ int	chunk_up(int size)
 	return (chunks);
 }
 
-void	push_chunks(t_number *a, t_number *b, int size1, int size2)
+void	push_chunks(t_number *a, t_number *b, int *size1, int *size2)
 {
 	int	chunks;
 	int	current;
-	int	i;
+	int	loops;
+	int	size;
 
-	i = 0;
-	chunks = chunk_up(size1);
+	chunks = chunk_up(*size1);
 	current = 1;
-	while (current < chunks)
+	while (current <= chunks && *size1 > 0)
 	{
-		if (a[i].index <= current * 20)
-			pb(a, b);
-		else
-			ra(a);
-		i++;
+		loops = 0;
+		size = *size1;
+		while (loops < size)
+		{
+			if (a[0].index <= current * 20)
+				pb(a, b, size1, size2);
+			else if (*size1 > 1)
+				ra(a, *size1);
+			loops++;
+		}
+		current++;
 	}
-	current++;
 }
 
 void	medium_sort(t_number *a, t_number *b, int *size1, int *size2)
 {
-    
+	int	max;
+	int	i;
+
+	push_chunks(a, b, size1, size2);
+	while (*size2 > 0)
+	{
+		i = *size2 - 1;
+		max = 0;
+		while (i > 0)
+		{
+			if (b[i].index > b[max].index)
+				max = i;
+			i--;
+		}
+		if (max <= *size2 / 2)
+			while (max-- > 0)
+				rb(b, *size2);
+		else
+		{
+			i = *size2 - max;
+			while (i-- > 0)
+				rrb(b, *size2);
+		}
+		pa(a, b, size1, size2);
+	}
 }
