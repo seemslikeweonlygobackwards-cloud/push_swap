@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/28 22:40:09 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/29 21:24:34 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int			fill_arr(t_number *s_arr, char **copy, int x);
 t_number	*parse_arg(int argc, char **argv);
 int			*merge_sort(int **array, int size);
 int			indexing(t_number *arr, int size);
+int 		sorted_arr(t_number *a, int size1)
 
 #endif
