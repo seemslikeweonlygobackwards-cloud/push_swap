@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/30 19:49:59 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:27:48 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	preprocess(t_number *a, int size1)
 int	main(int argc, char **argv)
 {
 	t_number	*a;
-	t_number	*b;
 	int			size1;
-	int			size2;
 	t_mode		mode;
 
 	if (argc < 2)
@@ -45,12 +43,12 @@ int	main(int argc, char **argv)
 		return (free(a), 0);
 	mode = parse_mode(argc, argv);
 	if (mode == SIMPLE)
-		simple_sort(a, b, &size1, &size2);
+		simple_sort(a, &size1);
 	else if (mode == MEDIUM)
-		medium_sort(a, b, &size1, &size2);
+		medium_sort(a, &size1);
 	else if (mode == COMPLEX)
-		complex_sort(a, b, &size1, &size2);
+		medium_sort(a, &size1);
 	else
-		disorder_strategy(a, b, &size1, &size2);
-	return (free(a), free(b), 0);
+		disorder_strategy(a, &size1);
+	return (free(a), 0);
 }
