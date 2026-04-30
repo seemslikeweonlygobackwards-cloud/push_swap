@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/29 17:07:10 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:24:51 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ void	push_chunks(t_number *a, t_number *b, int *size1, int *size2)
 	}
 }
 
-void	medium_sort(t_number *a, t_number *b, int *size1, int *size2)
+void	helper(t_number *a, t_number *b, int *size1, int *size2)
 {
 	int	max;
 	int	i;
 
-	push_chunks(a, b, size1, size2);
 	while (*size2 > 0)
 	{
 		i = *size2 - 1;
@@ -74,4 +73,17 @@ void	medium_sort(t_number *a, t_number *b, int *size1, int *size2)
 		}
 		pa(a, b, size1, size2);
 	}
+}
+
+void	medium_sort(t_number *a, int *size1)
+{
+	t_number	*b;
+	int			size2;
+
+	b = malloc(sizeof(t_number) * size1);
+	if (!b)
+		return (free(a), error());
+	push_chunks(a, b, size1, size2);
+	helper(a, b, size1, size2)
+
 }
