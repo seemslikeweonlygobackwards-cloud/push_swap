@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/30 19:41:17 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/30 21:23:08 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,20 @@ double	compute_disorder(t_number *a, int size)
 	return ((double)mistakes / total);
 }
 
-void	disorder_strategy(t_number *a, t_number *b, int *size1, int *size2)
+void	disorder_strategy(t_number *a, int *size1)
 {
 	double	disorder;
 
 	if (*size1 <= 3)
 	{
-		simple_sort(a, b, size1, size2);
+		simple_sort(a, size1);
 		return ;
 	}
 	disorder = compute_disorder(a, *size1);
 	if (disorder < 0.2)
-		simple_sort(a, b, size1, size2);
+		simple_sort(a, size1);
 	else if (disorder < 0.5)
-		medium_sort(a, b, size1, size2);
+		medium_sort(a, size1);
 	else
-		medium_sort(a, b, size1, size2);
+		medium_sort(a, size1,);
 }

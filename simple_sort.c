@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 18:35:38 by monika            #+#    #+#             */
-/*   Updated: 2026/04/30 20:30:02 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/04/30 21:24:09 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ void	simple_sort(t_number *a, t_number *b, int *size1, int *size2)
 	size2 = 0;
 	b = malloc(sizeof(t_number) * size1);
 	if (!b)
-		return (free(a), error());
+		return (free(a));
 	while (p--)
-		find_min(a, b, size1, size2);
+		find_min(a, b, size1, &size2);
 	sort3(a);
 	while (*size2 > 0)
-		pa(a, b, size1, size2);
+		pa(a, b, size1, &size2);
 	free(b);
 	return ;
 }
