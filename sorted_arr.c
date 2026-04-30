@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   sorted_arr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:08:32 by monika            #+#    #+#             */
-/*   Updated: 2026/04/29 21:11:44 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/30 17:48:06 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int sorted_arr(t_number *a, int size1)
+int	sorted_arr(t_number *a, int size1)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < size1 - 1)
-    {
-        if(a[i].index > a[i + 1].index)
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	while (i < size1 - 1)
+	{
+		if (a[i].index > a[i + 1].index)
+			return (0);
+		i++;
+	}
+	return (1);
 }

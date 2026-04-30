@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/29 21:24:34 by monika           ###   ########.fr       */
+/*   Updated: 2026/04/30 18:55:16 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
 
 typedef struct number
 {
@@ -22,10 +21,14 @@ typedef struct number
 	int	index;
 }	t_number;
 
-void		rotate(t_number *stack, int size);
-void		reverse_rotate(t_number *stack, int size);
-void		swap(t_number *stack, int size);
-void		push(t_number *stack1, t_number *stack2, int *size1, int *size2);
+typedef enum e_mode
+{
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+}	t_mode;
+
 int			duplicates(t_number *arr, int size);
 int			first_handle(char *str);
 long		error_handle(const char *str);
@@ -48,8 +51,18 @@ void		free_everything(char **copy);
 int			count_arg(int argc, char **argv);
 int			fill_arr(t_number *s_arr, char **copy, int x);
 t_number	*parse_arg(int argc, char **argv);
-int			*merge_sort(int **array, int size);
 int			indexing(t_number *arr, int size);
-int 		sorted_arr(t_number *a, int size1)
+double		compute_disorder(t_number *a, int size);
+int			error(void);
+int			preprocess(t_number *a, int size1);
+void		decide_strategy(t_number *a, t_number *b, int *size1, int *size2);
+int			chunk_up(int size);
+void		push_chunks(t_number *a, t_number *b, int *size1, int *size2);
+void		medium_sort(t_number *a, t_number *b, int *size1, int *size2);
+void		sort2(t_number *a);
+void		sort3(t_number *a);
+void		find_min(t_number *a, t_number *b, int *size1, int *size2);
+void		simple_sort(t_number *a, t_number *b, int *size1, int *size2);
+int			sorted_arr(t_number *a, int size1);
 
 #endif
