@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 21:22:11 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:35:20 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	run_sort(t_mode mode, t_number *a, int *size1, t_bench *ben)
 	else if (mode == MEDIUM)
 		medium_sort(a, size1, ben);
 	else if (mode == COMPLEX)
-		medium_sort(a, size1, ben);
+		complex_sort(a, size1, ben);
 	else
 		disorder_strategy(a, size1, ben);
 }
@@ -70,5 +70,6 @@ int	main(int argc, char **argv)
 	disorder = compute_disorder(a, size1);
 	run_sort(mode, a, &size1, &ben);
 	print_bench(&ben, disorder, mode);
-	return (free(a), 0);
+	free(a);
+	return (0);
 }

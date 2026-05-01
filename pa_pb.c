@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:52:02 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 21:02:15 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:22:07 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,53 @@ void	push(t_data *meow)
 {
 	int	i;
 
-	if (*size2 < 1)
+	if (meow->size2 < 1)
 		return ;
-	i = *size1;
+	i = meow->size1;
 	while (i > 0)
 	{
-		stack1[i] = stack1[i - 1];
+		meow->a[i] = meow->a[i - 1];
 		i--;
 	}
-	stack1[0] = stack2[0];
+	meow->a[0] = meow->b[0];
 	i = 0;
-	while (i < *size2 - 1)
+	while (i < meow->size2 - 1)
 	{
-		stack2[i] = stack2[i + 1];
+		meow->b[i] = meow->b[i + 1];
 		i++;
 	}
-	(*size2)--;
-	(*size1)++;
+	meow->size2--;
+	meow->size1++;
 }
 
-void	pa(t_data *meow, t_bench ben)
+void	pa(t_data *meow, t_bench *ben)
 {
-	t_bench		b;
-
-	ft_bzero(b, sizeof(b));
-	push(a, b, size1, size2);
-	ben->pb++;
+	push(meow);
+	ben->pa++;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_data *meow, t_bench ben)
+void	pb(t_data *meow, t_bench *ben)
 {
-	t_bench	b;
+	int	i;
 
-	ft_bzero(b, sizeof(b));
-	push(b, a, size2, size1);
+	if (meow->size1 < 1)
+		return ;
+	i = meow->size2;
+	while (i > 0)
+	{
+		meow->b[i] = meow->b[i - 1];
+		i--;
+	}
+	meow->b[0] = meow->a[0];
+	i = 0;
+	while (i < meow->size1 - 1)
+	{
+		meow->a[i] = meow->a[i + 1];
+		i++;
+	}
+	meow->size1--;
+	meow->size2++;
 	ben->pb++;
 	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 21:06:40 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:56:21 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,36 @@
 
 int	start_index(int argc, char **argv)
 {
-	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == '-')
-		return (2);
-	return (1);
+	int	i;
+
+	i = 1;
+	while (i < argc
+		&& argv[i][0] == '-'
+		&& argv[i][1] == '-')
+		i++;
+	return (i);
 }
 
-t_mode	parse_mode(int argc, char **argv, t_bench ben)
+t_mode	parse_mode(int argc, char **argv, t_bench *ben)
 {
+	int		i;
 	t_mode	mode;
-	int		start;
 
+	i = 1;
 	mode = ADAPTIVE;
-	start = start_index(argc, argv);
-	if (start == 2)
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (!ft_strncmp(argv[1], "--simple", 8))
-			mode = SIMPLE;
-		if (!ft_strncmp(argv[1], "--medium", 8))
-			mode = MEDIUM;
-		if (!ft_strncmp(argv[1], "--complex", 9))
-			mode = COMPLEX;
-		if (!ft_strncmp(argv[1], "--adaptive", 10))
-			mode = ADAPTIVE;
-		if (!ft_strncmp(argv[1], "--bench", 7))
+		if (!ft_strncmp(argv[i], "--bench", 7))
 			ben->enabled = 1;
+		else if (!ft_strncmp(argv[i], "--simple", 8))
+			mode = SIMPLE;
+		else if (!ft_strncmp(argv[i], "--medium", 8))
+			mode = MEDIUM;
+		else if (!ft_strncmp(argv[i], "--complex", 9))
+			mode = COMPLEX;
+		else if (!ft_strncmp(argv[i], "--adaptive", 10))
+			mode = ADAPTIVE;
+		i++;
 	}
 	return (mode);
 }
@@ -68,20 +74,18 @@ double	compute_disorder(t_number *a, int size)
 	return ((double)mistakes / total);
 }
 
-int	disorder_strategy(t_number *a, int *size1, t_bench ben)
+double	disorder_strategy(t_number *a, int *size1, t_bench *ben)
 {
 	double	disorder;
 
 	disorder = compute_disorder(a, *size1);
 	if (*size1 <= 3)
-	{
 		simple_sort(a, size1, ben);
-		return (0);
-	}
-	if (disorder < 0.2)
-		return (simple_sort(a, size1, ben));
+	else if (disorder < 0.2)
+		simple_sort(a, size1, ben);
 	else if (disorder < 0.5)
-		return (medium_sort(a, size1, ben));
+		medium_sort(a, size1, ben);
 	else
-		return (medium_sort(a, size1, ben));
+		complex_sort(a, size1, ben);
+	return (disorder);
 }

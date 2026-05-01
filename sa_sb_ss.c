@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:40:24 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 21:03:07 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:25:30 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	swap(t_number *stack, int size)
 	stack[1] = temp;
 }
 
-void	sa(t_number *a, int size1, t_bench ben)
+void	sa(t_data *meow, t_bench *ben)
 {
-	swap(a, size1, ben);
+	swap(meow->a, meow->size1);
 	ben->sa++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_number *b, int size2, t_bench ben)
+void	sb(t_data *meow, t_bench *ben)
 {
-	swap(b, size2, ben);
+	swap(meow->b, meow->size2);
 	ben->sb++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_data *meow, t_bench ben)
+void	ss(t_data *meow, t_bench *ben)
 {
-	swap(a, size1, ben);
-	swap(b, size2, ben);
+	swap(meow->a, meow->size1);
+	swap(meow->b, meow->size2);
 	ben->ss++;
 	write(1, "ss\n", 3);
 }

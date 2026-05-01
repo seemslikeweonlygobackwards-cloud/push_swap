@@ -6,94 +6,88 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 21:08:18 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:31:52 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chunk_up(t_number *a, int size)
+int	chunk_up(int size)
 {
 	int	chunks;
 
 	chunks = size / 20;
-	if (size <= 3)
-	{
-		if (size == 2)
-			sort2(a);
-		else if (size == 3)
-			sort3(a);
-		return (0);
-	}
 	if (chunks < 5)
 		return (5);
 	return (chunks);
 }
 
-void	push_chunks(t_number *a, t_number *b, int *size1, int *size2)
+void	push_chunks(t_data *meow, t_bench *ben)
 {
 	int	chunks;
 	int	current;
 	int	loops;
 	int	size;
 
-	chunks = chunk_up(a, *size1);
+	chunks = chunk_up(meow->size1);
 	current = 1;
-	while (current <= chunks && *size1 > 0)
+	while (current <= chunks && meow->size1 > 0)
 	{
 		loops = 0;
-		size = *size1;
+		size = meow->size1;
 		while (loops < size)
 		{
-			if (a[0].index <= current * 20)
-				pb(a, b, size1, size2);
-			else if (*size1 > 1)
-				ra(a, *size1);
+			if (meow->a[0].index <= current * 20)
+				pb(meow, ben);
+			else if (meow->size1 > 1)
+				ra(meow, ben);
 			loops++;
 		}
 		current++;
 	}
 }
 
-void	helper(t_number *a, t_number *b, int *size1, int *size2)
+void	helper(t_data *meow, t_bench *ben)
 {
 	int	max;
 	int	i;
 
-	while (*size2 > 0)
+	while (meow->size2 > 0)
 	{
-		i = *size2 - 1;
+		i = meow->size2 - 1;
 		max = 0;
 		while (i > 0)
 		{
-			if (b[i].index > b[max].index)
+			if (meow->b[i].index > meow->b[max].index)
 				max = i;
 			i--;
 		}
-		if (max <= *size2 / 2)
+		if (max <= meow->size2 / 2)
 			while (max-- > 0)
-				rb(b, *size2);
+				rb(meow, ben);
 		else
 		{
-			i = *size2 - max;
+			i = meow->size2 - max;
 			while (i-- > 0)
-				rrb(b, *size2);
+				rrb(meow, ben);
 		}
-		pa(a, b, size1, size2);
+		pa(meow, ben);
 	}
 }
 
-int	medium_sort(t_number *a, int *size1, t_bench ben)
+int	medium_sort(t_number *a, int *size1, t_bench *ben)
 {
 	t_data	meow;
 
 	meow.a = a;
 	meow.size1 = *size1;
 	meow.size2 = 0;
-	meow.b = malloc(sizeof(t_number) * (*size1));
+	meow.b = malloc(sizeof(t_number) * meow.size1);
 	if (!meow.b)
 		return (free(a), error());
 	push_chunks(&meow, ben);
-	helper(a, b, size1, &size2);
-	return (free(b), 0);
+	helper(&meow, ben);
+	*size1 = meow.size1;
+	free(meow.b);
+	return (0);
 }
