@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 17:07:15 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:09:45 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	disorder_strategy(t_number *a, int *size1)
 	if (*size1 <= 3)
 	{
 		simple_sort(a, size1);
-		return ;
+		return (0);
 	}
 	disorder = compute_disorder(a, *size1);
 	if (disorder < 0.2)
