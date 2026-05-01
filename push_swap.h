@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/01 16:40:47 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:05:06 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ int			indexing(t_number *arr, int size);
 double		compute_disorder(t_number *a, int size);
 int			error(void);
 int			preprocess(t_number *a, int size1);
-void		disorder_strategy(t_number *a, int *size1);
+int			disorder_strategy(t_number *a, int *size1);
 int			chunk_up(int size);
 void		push_chunks(t_number *a, t_number *b, int *size1, int *size2);
-void		medium_sort(t_number *a, int *size1);
+int			medium_sort(t_number *a, int *size1);
 void		sort2(t_number *a);
 void		sort3(t_number *a);
 void		find_min(t_number *a, t_number *b, int *size1, int *size2);
-void		simple_sort(t_number *a, int *size1);
+int			simple_sort(t_number *a, int *size1);
 int			sorted_arr(t_number *a, int size1);
 int			start_index(int argc, char **argv);
 t_mode		parse_mode(int argc, char **argv);

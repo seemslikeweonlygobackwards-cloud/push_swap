@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 18:35:38 by monika            #+#    #+#             */
-/*   Updated: 2026/05/01 16:42:01 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:08:00 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	find_min(t_number *a, t_number *b, int *size1, int *size2)
 	pb(a, b, size1, size2);
 }
 
-void	simple_sort(t_number *a, int *size1)
+int	simple_sort(t_number *a, int *size1)
 {
 	t_number	*b;
 	int			size2;
@@ -84,17 +84,17 @@ void	simple_sort(t_number *a, int *size1)
 			sort2(a);
 		else if (*size1 == 3)
 			sort3(a);
-		return ;
+		return (0);
 	}
 	p = *size1 - 3;
 	size2 = 0;
 	b = malloc(sizeof(t_number) * (*size1));
 	if (!b)
-		return (free(a));
+		return (free(a), error());
 	while (p--)
 		find_min(a, b, size1, &size2);
 	sort3(a);
 	while (size2 > 0)
 		pa(a, b, size1, &size2);
-	return (free(b));
+	return (free(b), 0);
 }
