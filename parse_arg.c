@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 16:35:51 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:01:47 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	count_arg(int argc, char **argv)
 	int		j;
 	int		count;
 
-	i = 1;
+	i = start_index(argc, argv);
 	count = 0;
 	while (i < argc)
 	{
@@ -86,7 +86,7 @@ t_number	*parse_arg(int argc, char **argv)
 	int			count;
 	int			x;
 
-	i = 1;
+	i = start_index(argc, argv);
 	x = 0;
 	count = count_arg(argc, argv);
 	if (count <= 0)
