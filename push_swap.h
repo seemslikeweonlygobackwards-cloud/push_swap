@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/04/30 18:55:16 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:25:58 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		medium_sort(t_number *a, t_number *b, int *size1, int *size2);
 void		sort2(t_number *a);
 void		sort3(t_number *a);
 void		find_min(t_number *a, t_number *b, int *size1, int *size2);
-void		simple_sort(t_number *a, t_number *b, int *size1, int *size2);
+void		simple_sort(t_number *a, int *size1);
 int			sorted_arr(t_number *a, int size1);
 
 #endif
