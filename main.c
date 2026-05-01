@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 18:43:05 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:51:32 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	size1 = count_arg(argc, argv);
 	a = parse_arg(argc, argv);
 	if (!a || !preprocess(a, size1))
-		return (0);
+		return (error(), 0);
 	if (sorted_arr(a, size1))
 		return (free(a), 0);
 	mode = parse_mode(argc, argv);
