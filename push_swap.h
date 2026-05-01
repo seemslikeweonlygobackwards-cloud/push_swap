@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/01 17:05:06 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:24:40 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 
-typedef struct number
+typedef struct s_number
 {
 	int	value;
 	int	index;
@@ -28,6 +28,22 @@ typedef enum e_mode
 	COMPLEX,
 	ADAPTIVE
 }	t_mode;
+
+typedef struct s_benchmark
+{
+	int	bench;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}	t_benchmark;
 
 int			duplicates(t_number *arr, int size);
 int			first_handle(char *str);
@@ -56,7 +72,7 @@ double		compute_disorder(t_number *a, int size);
 int			error(void);
 int			preprocess(t_number *a, int size1);
 int			disorder_strategy(t_number *a, int *size1);
-int			chunk_up(int size);
+int			chunk_up(t_number *a, int size);
 void		push_chunks(t_number *a, t_number *b, int *size1, int *size2);
 int			medium_sort(t_number *a, int *size1);
 void		sort2(t_number *a);

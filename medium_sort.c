@@ -6,17 +6,25 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 17:05:45 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:04:39 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chunk_up(int size)
+int	chunk_up(t_number *a, int size)
 {
 	int	chunks;
 
 	chunks = size / 20;
+	if (size <= 3)
+	{
+		if (size == 2)
+			sort2(a);
+		else if (size == 3)
+			sort3(a);
+		return (0);
+	}
 	if (chunks < 5)
 		return (5);
 	return (chunks);
@@ -29,7 +37,7 @@ void	push_chunks(t_number *a, t_number *b, int *size1, int *size2)
 	int	loops;
 	int	size;
 
-	chunks = chunk_up(*size1);
+	chunks = chunk_up(a, *size1);
 	current = 1;
 	while (current <= chunks && *size1 > 0)
 	{
