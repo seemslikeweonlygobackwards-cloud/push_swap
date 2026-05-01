@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 17:09:45 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 21:06:40 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	start_index(int argc, char **argv)
 	return (1);
 }
 
-t_mode	parse_mode(int argc, char **argv)
+t_mode	parse_mode(int argc, char **argv, t_bench ben)
 {
 	t_mode	mode;
 	int		start;
@@ -36,6 +36,8 @@ t_mode	parse_mode(int argc, char **argv)
 			mode = COMPLEX;
 		if (!ft_strncmp(argv[1], "--adaptive", 10))
 			mode = ADAPTIVE;
+		if (!ft_strncmp(argv[1], "--bench", 7))
+			ben->enabled = 1;
 	}
 	return (mode);
 }
@@ -66,20 +68,20 @@ double	compute_disorder(t_number *a, int size)
 	return ((double)mistakes / total);
 }
 
-int	disorder_strategy(t_number *a, int *size1)
+int	disorder_strategy(t_number *a, int *size1, t_bench ben)
 {
 	double	disorder;
 
+	disorder = compute_disorder(a, *size1);
 	if (*size1 <= 3)
 	{
-		simple_sort(a, size1);
+		simple_sort(a, size1, ben);
 		return (0);
 	}
-	disorder = compute_disorder(a, *size1);
 	if (disorder < 0.2)
-		return (simple_sort(a, size1));
+		return (simple_sort(a, size1, ben));
 	else if (disorder < 0.5)
-		return (medium_sort(a, size1));
+		return (medium_sort(a, size1, ben));
 	else
-		return (medium_sort(a, size1));
+		return (medium_sort(a, size1, ben));
 }

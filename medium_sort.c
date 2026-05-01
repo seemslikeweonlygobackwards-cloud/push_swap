@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 18:04:39 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 21:08:18 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,17 @@ void	helper(t_number *a, t_number *b, int *size1, int *size2)
 	}
 }
 
-int	medium_sort(t_number *a, int *size1)
+int	medium_sort(t_number *a, int *size1, t_bench ben)
 {
-	t_number	*b;
-	int			size2;
+	t_data	meow;
 
-	size2 = 0;
-	b = malloc(sizeof(t_number) * (*size1));
-	if (!b)
+	meow.a = a;
+	meow.size1 = *size1;
+	meow.size2 = 0;
+	meow.b = malloc(sizeof(t_number) * (*size1));
+	if (!meow.b)
 		return (free(a), error());
-	push_chunks(a, b, size1, &size2);
+	push_chunks(&meow, ben);
 	helper(a, b, size1, &size2);
 	return (free(b), 0);
 }

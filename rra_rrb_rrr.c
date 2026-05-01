@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:23:07 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/01 16:31:04 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 20:48:50 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ void	reverse_rotate(t_number *stack, int size)
 	stack[0] = temp;
 }
 
-void	rra(t_number *a, int size1)
+void	rra(t_number *a, int size1, t_bench ben)
 {
-	reverse_rotate(a, size1);
+	reverse_rotate(a, size1, ben);
+	ben->rra++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_number *b, int size2)
+void	rrb(t_number *b, int size2, t_bench ben)
 {
-	reverse_rotate(b, size2);
+	reverse_rotate(b, size2, ben);
+	ben->rrb++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_number *a, t_number *b, int size1, int size2)
+void	rrr(t_data meow, t_bench ben)
 {
-	reverse_rotate(a, size1);
-	reverse_rotate(b, size2);
+	reverse_rotate(a, size1, ben);
+	reverse_rotate(b, size2, ben);
+	ben->rrr++;
 	write(1, "rrr\n", 4);
 }

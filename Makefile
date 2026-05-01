@@ -4,6 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
+PRINTF = libftprintf/libftprintf.a
 
 SRCS = main.c \
        indexing.c \

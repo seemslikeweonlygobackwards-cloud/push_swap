@@ -6,13 +6,13 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:52:02 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/29 16:56:52 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 21:02:15 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_number *stack1, t_number *stack2, int *size1, int *size2)
+void	push(t_data *meow)
 {
 	int	i;
 
@@ -35,14 +35,22 @@ void	push(t_number *stack1, t_number *stack2, int *size1, int *size2)
 	(*size1)++;
 }
 
-void	pa(t_number *a, t_number *b, int *size1, int *size2)
+void	pa(t_data *meow, t_bench ben)
 {
+	t_bench		b;
+
+	ft_bzero(b, sizeof(b));
 	push(a, b, size1, size2);
+	ben->pb++;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_number *a, t_number *b, int *size1, int *size2)
+void	pb(t_data *meow, t_bench ben)
 {
+	t_bench	b;
+
+	ft_bzero(b, sizeof(b));
 	push(b, a, size2, size1);
+	ben->pb++;
 	write(1, "pb\n", 3);
 }
