@@ -16,8 +16,8 @@ SRCS = main.c \
        parse_arg.c \
        simple_sort.c \
        medium_sort.c \
-       compute_disorder.c \
-       sorted_arr.c
+       disorder_strategy.c \
+       sorted_arr.c 
 
 OBJS = $(SRCS:.c=.o)
 

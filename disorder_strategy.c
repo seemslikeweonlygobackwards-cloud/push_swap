@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_strategy.c                                  :+:      :+:    :+:   */
+/*   disorder_strategy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 16:22:39 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:47:26 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	start_index(int argc, char **argv)
+{
+	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == '-')
+		return (2);
+	return (1);
+}
+
 t_mode	parse_mode(int argc, char **argv)
 {
 	t_mode	mode;
+	int		start;
 
 	mode = ADAPTIVE;
-	if (!ft_strcmp(argv[1], "--simple"))
-		mode = SIMPLE;
-	if (!ft_strcmp(argv[1], "--medium"))
-		mode = MEDIUM;
-	if (!ft_strcmp(argv[1], "--complex"))
-		mode = COMPLEX;
-	if (!ft_strcmp(argv[1], "--adaptive"))
-		mode = ADAPTIVE;
+	start = start_index(argc, argv);
+	if (start == 2)
+	{
+		if (!ft_strncmp(argv[1], "--simple", 8))
+			mode = SIMPLE;
+		if (!ft_strncmp(argv[1], "--medium", 8))
+			mode = MEDIUM;
+		if (!ft_strncmp(argv[1], "--complex", 9))
+			mode = COMPLEX;
+		if (!ft_strncmp(argv[1], "--adaptive", 10))
+			mode = ADAPTIVE;
+	}
 	return (mode);
 }
 

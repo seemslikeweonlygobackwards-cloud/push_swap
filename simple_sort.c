@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 18:35:38 by monika            #+#    #+#             */
-/*   Updated: 2026/05/01 16:25:25 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:42:01 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	simple_sort(t_number *a, int *size1)
 	while (p--)
 		find_min(a, b, size1, &size2);
 	sort3(a);
-	while (*size2 > 0)
+	while (size2 > 0)
 		pa(a, b, size1, &size2);
 	return (free(b));
 }
