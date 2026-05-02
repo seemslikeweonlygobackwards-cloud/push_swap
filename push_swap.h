@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/02 16:58:43 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 23:06:03 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void		print_bench(t_bench *ben, double disorder, t_mode mode);
 int			get_bits_number(int number);
 void		process_bit(t_data *meow, t_bench *ben, int bit);
 int			complex_sort(t_number *a, int *size1, t_bench *ben);
-void		print_mode(t_mode mode);
+void		print_mode(t_mode mode, double disorder);
 void		print_line1(t_bench *ben);
 void		print_line2(t_bench *ben);
 void		print_line3(t_bench *ben);

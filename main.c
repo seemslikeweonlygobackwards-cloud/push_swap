@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:38:09 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 23:11:48 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_number	*init_data(int argc, char **argv, int *size1)
 	a = parse_arg(argc, argv);
 	if (!a)
 		return (error(), NULL);
-	if (!preprocess(a, *size1))
+	else if (!preprocess(a, *size1))
 		return (error(), NULL);
 	return (a);
 }
@@ -64,6 +64,8 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_bzero(&ben, sizeof(ben));
 	mode = parse_mode(argc, argv, &ben);
+	if (!mode)
+		return(error(), 0);
 	a = init_data(argc, argv, &size1);
 	if (!a)
 		return (0);

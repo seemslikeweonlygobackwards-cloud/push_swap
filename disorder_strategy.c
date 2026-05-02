@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_strategy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:44:51 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 23:11:49 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_mode	parse_mode(int argc, char **argv, t_bench *ben)
 		else if (!ft_strncmp(argv[i], "--adaptive", 10))
 			mode = ADAPTIVE;
 		else
-			return (error(), ADAPTIVE);
+			return (0);
 		i++;
 	}
 	return (mode);

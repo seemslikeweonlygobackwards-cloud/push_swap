@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_bench.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 20:36:48 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 23:27:07 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 22:58:22 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,23 @@ int	total_ops(t_bench *b)
 		+ b->rra + b->rrb + b->rrr);
 }
 
-void	print_mode(t_mode mode)
+void	print_mode(t_mode mode, double disorder)
 {
 	if (mode == SIMPLE)
 		write(2, "Strategy: simple (O(n^2))\n", 26);
 	else if (mode == MEDIUM)
-		write(2, "Strategy: medium (O(nsqrt(n)))\n", 31);
+		write(2, "Strategy: medium (O(n*sqrt(n)))\n", 32);
 	else if (mode == COMPLEX)
 		write(2, "Strategy: complex (O(n log n))\n", 31);
 	else
-		write(2, "Strategy: adaptive\n", 19);
+	{
+		if (disorder < 0.2)
+			write(2, "Strategy: adaptive = simple (O(n^2))\n", 37);
+		else if (disorder < 0.5)
+			write(2, "Strategy: adaptive = medium (O(n*sqrt(n)))\n", 43);
+		else
+			write(2, "Strategy: adaptive = complex n(O(nlogn))\n", 40);
+	}
 }
 
 void	print_percent(double disorder)
@@ -50,7 +57,7 @@ void	print_bench(t_bench *ben, double disorder, t_mode mode)
 		return ;
 	ft_putstr_fd("Disorder: ", 2);
 	print_percent(disorder);
-	print_mode(mode);
+	print_mode(mode, disorder);
 	ft_putstr_fd("Total ops: ", 2);
 	ft_putnbr_fd(total_ops(ben), 2);
 	ft_putstr_fd("\n", 2);
