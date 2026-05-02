@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:55:38 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:33:26 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/03 02:35:06 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ int	medium_sort(t_number *a, int *size1, t_bench *ben)
 	meow.a = a;
 	meow.size1 = *size1;
 	meow.size2 = 0;
+	if (*size1 < 20)
+		return(simple_sort(a, size1, ben));
 	meow.b = malloc(sizeof(t_number) * meow.size1);
 	if (!meow.b)
 		return (free(a), error(), 1);
-	if (*size1 < 20)
-		return(simple_sort(a, size1, ben));
 	push_chunks(&meow, ben);
 	helper(&meow, ben);
 	*size1 = meow.size1;

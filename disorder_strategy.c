@@ -6,7 +6,7 @@
 /*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 23:11:49 by monika           ###   ########.fr       */
+/*   Updated: 2026/05/03 02:31:19 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	start_index(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (!ft_strncmp(argv[i], "--bench", 7)
-			|| !ft_strncmp(argv[i], "--simple", 8)
-			|| !ft_strncmp(argv[i], "--medium", 8)
-			|| !ft_strncmp(argv[i], "--complex", 9)
-			|| !ft_strncmp(argv[i], "--adaptive", 10))
+		if (!ft_strncmp(argv[i], "--bench", 8)
+			|| !ft_strncmp(argv[i], "--simple", 9)
+			|| !ft_strncmp(argv[i], "--medium", 9)
+			|| !ft_strncmp(argv[i], "--complex", 10)
+			|| !ft_strncmp(argv[i], "--adaptive", 11))
 			i++;
 		else
 			break ;
@@ -36,19 +36,19 @@ t_mode	parse_mode(int argc, char **argv, t_bench *ben)
 	int		i;
 	t_mode	mode;
 
-	i = 1;
+	i = 1 + start_index(argc, argv);
 	mode = ADAPTIVE;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (!ft_strncmp(argv[i], "--bench", 7))
+		if (!ft_strncmp(argv[i], "--bench", 8))
 			ben->enabled = 1;
-		else if (!ft_strncmp(argv[i], "--simple", 8))
+		else if (!ft_strncmp(argv[i], "--simple", 9))
 			mode = SIMPLE;
-		else if (!ft_strncmp(argv[i], "--medium", 8))
+		else if (!ft_strncmp(argv[i], "--medium", 9))
 			mode = MEDIUM;
-		else if (!ft_strncmp(argv[i], "--complex", 9))
+		else if (!ft_strncmp(argv[i], "--complex", 10))
 			mode = COMPLEX;
-		else if (!ft_strncmp(argv[i], "--adaptive", 10))
+		else if (!ft_strncmp(argv[i], "--adaptive", 11))
 			mode = ADAPTIVE;
 		else
 			return (0);

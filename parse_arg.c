@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:59:54 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/03 02:08:59 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	fill_arr(t_number *s_arr, char **copy, int x)
 		if (copy[j][0] != '\0')
 		{
 			if (!first_handle(copy[j]))
-				return (free(copy), -1);
+				return (free_everything(copy), -1);
 			n = atoi_hand(copy[j]);
 			if (n > 2147483647 || n < -2147483648)
 				return (free_everything(copy), -1);
@@ -98,7 +98,7 @@ t_number	*parse_arg(int argc, char **argv)
 	{
 		copy = ft_split(argv[i], ' ');
 		if (!copy)
-			return (free(s_arr), NULL);
+			return (free(s_arr), free(copy), NULL);
 		x = fill_arr(s_arr, copy, x);
 		if (x == -1)
 			return (free(s_arr), NULL);

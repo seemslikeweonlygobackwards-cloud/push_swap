@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 20:21:50 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/02 17:33:16 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/03 01:53:45 by monika           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,19 @@ int	complex_sort(t_number *a, int *size1, t_bench *ben)
 	meow.a = a;
 	meow.size1 = *size1;
 	meow.size2 = 0;
+	if (*size1 <= 100)
+		return(medium_sort(a, size1, ben));
 	meow.b = malloc(sizeof(t_number) * (*size1));
 	if (!meow.b)
 		return (free(a), error(), 1);
-	if (*size1 < 20)
-		return(simple_sort(a, size1, ben));
 	max_bits = get_bits_number(*size1 - 1);
 	bit = 0;
 	while (bit < max_bits)
 	{
-		process_bit(&meow, ben, bit);
-		bit++;
+    	if (sorted_arr(meow.a, meow.size1) && meow.size2 == 0)
+        	break;
+    	process_bit(&meow, ben, bit);
+    	bit++;
 	}
 	free(meow.b);
 	return (0);
