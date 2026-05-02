@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 20:21:50 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/02 16:35:38 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 17:33:16 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	complex_sort(t_number *a, int *size1, t_bench *ben)
 	meow.b = malloc(sizeof(t_number) * (*size1));
 	if (!meow.b)
 		return (free(a), error(), 1);
+	if (*size1 < 20)
+		return(simple_sort(a, size1, ben));
 	max_bits = get_bits_number(*size1 - 1);
 	bit = 0;
 	while (bit < max_bits)
