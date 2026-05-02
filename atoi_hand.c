@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handle.c                                     :+:      :+:    :+:   */
+/*   atoi_hand.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/04/29 16:18:35 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:58:07 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	first_handle(char *str)
 	return (1);
 }
 
-long	error_handle(const char *str)
+long	atoi_hand(const char *str)
 {
 	long	num;
 	int		sign;

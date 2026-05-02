@@ -8,7 +8,7 @@ LIBFT = libft/libft.a
 SRCS = main.c \
        indexing.c \
        duplicates.c \
-       error_handle.c \
+       atoi_hand.c \
        pa_pb.c \
        sa_sb_ss.c \
        ra_rb_rr.c \

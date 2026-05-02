@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:24:39 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 22:56:21 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:44:51 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,17 @@ int	start_index(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	while (i < argc
-		&& argv[i][0] == '-'
-		&& argv[i][1] == '-')
-		i++;
+	while (i < argc)
+	{
+		if (!ft_strncmp(argv[i], "--bench", 7)
+			|| !ft_strncmp(argv[i], "--simple", 8)
+			|| !ft_strncmp(argv[i], "--medium", 8)
+			|| !ft_strncmp(argv[i], "--complex", 9)
+			|| !ft_strncmp(argv[i], "--adaptive", 10))
+			i++;
+		else
+			break ;
+	}
 	return (i);
 }
 
@@ -43,6 +50,8 @@ t_mode	parse_mode(int argc, char **argv, t_bench *ben)
 			mode = COMPLEX;
 		else if (!ft_strncmp(argv[i], "--adaptive", 10))
 			mode = ADAPTIVE;
+		else
+			return (error(), ADAPTIVE);
 		i++;
 	}
 	return (mode);

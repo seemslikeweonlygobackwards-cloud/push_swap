@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 17:43:57 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 20:57:51 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:59:54 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	fill_arr(t_number *s_arr, char **copy, int x)
 		if (copy[j][0] != '\0')
 		{
 			if (!first_handle(copy[j]))
-				return (free_everything(copy), -1);
-			n = error_handle(copy[j]);
+				return (free(copy), -1);
+			n = atoi_hand(copy[j]);
 			if (n > 2147483647 || n < -2147483648)
 				return (free_everything(copy), -1);
 			s_arr[x].value = (int)n;

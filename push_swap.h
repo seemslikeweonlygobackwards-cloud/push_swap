@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:08:42 by amghazar          #+#    #+#             */
-/*   Updated: 2026/05/01 23:27:32 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:58:43 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_bench
 
 int			duplicates(t_number *arr, int size);
 int			first_handle(char *str);
-long		error_handle(const char *str);
+long		atoi_hand(const char *str);
 void		push(t_data *meow);
 void		pa(t_data *meow, t_bench *ben);
 void		pb(t_data *meow, t_bench *ben);
@@ -78,7 +78,7 @@ int			fill_arr(t_number *s_arr, char **copy, int x);
 t_number	*parse_arg(int argc, char **argv);
 int			indexing(t_number *arr, int size);
 double		compute_disorder(t_number *a, int size);
-int			error(void);
+void		error(void);
 int			preprocess(t_number *a, int size1);
 t_number	*init_data(int argc, char **argv, int *size1);
 double		disorder_strategy(t_number *a, int *size1, t_bench *ben);

@@ -6,7 +6,7 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 18:35:38 by monika            #+#    #+#             */
-/*   Updated: 2026/05/01 22:31:13 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 17:24:45 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	simple_sort(t_number *a, int *size1, t_bench *ben)
 	p = meow.size1 - 3;
 	meow.b = malloc(sizeof(t_number) * meow.size1);
 	if (!meow.b)
-		return (free(a), error());
+		return (free(a), error(), 1);
 	while (p--)
 		find_min(&meow, ben);
 	sort3(&meow, ben);

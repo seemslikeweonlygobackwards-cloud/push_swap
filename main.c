@@ -6,16 +6,16 @@
 /*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/01 22:35:20 by mavanesy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:38:09 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(void)
+void	error(void)
 {
 	write(2, "Error\n", 6);
-	return (1);
+	return ;
 }
 
 int	preprocess(t_number *a, int size1)
@@ -33,8 +33,10 @@ t_number	*init_data(int argc, char **argv, int *size1)
 
 	*size1 = count_arg(argc, argv);
 	a = parse_arg(argc, argv);
-	if (!a || !preprocess(a, *size1))
-		return (NULL);
+	if (!a)
+		return (error(), NULL);
+	if (!preprocess(a, *size1))
+		return (error(), NULL);
 	return (a);
 }
 
@@ -64,12 +66,11 @@ int	main(int argc, char **argv)
 	mode = parse_mode(argc, argv, &ben);
 	a = init_data(argc, argv, &size1);
 	if (!a)
-		return (error());
-	if (sorted_arr(a, size1))
-		return (free(a), 0);
+		return (0);
 	disorder = compute_disorder(a, size1);
+	if (sorted_arr(a, size1))
+		return (print_bench(&ben, disorder, mode), free(a), 0);
 	run_sort(mode, a, &size1, &ben);
-	print_bench(&ben, disorder, mode);
 	free(a);
-	return (0);
+	return (print_bench(&ben, disorder, mode), 0);
 }
