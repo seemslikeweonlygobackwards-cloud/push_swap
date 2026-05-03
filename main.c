@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monika <monika@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mavanesy <mavanesy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:47:07 by mavanesy          #+#    #+#             */
-/*   Updated: 2026/05/02 23:11:48 by monika           ###   ########.fr       */
+/*   Updated: 2026/05/03 16:27:19 by mavanesy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&ben, sizeof(ben));
 	mode = parse_mode(argc, argv, &ben);
 	if (!mode)
-		return(error(), 0);
+		return (error(), 0);
 	a = init_data(argc, argv, &size1);
 	if (!a)
 		return (0);
